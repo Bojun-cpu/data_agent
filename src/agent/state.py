@@ -1,9 +1,16 @@
-from typing import TypedDict, Optional, Any, List, Dict
+from typing import Any, TypedDict
 
 
-class AgentState(TypedDict):
+class AgentState(TypedDict, total=False):
     user_question: str
-    generated_sql: Optional[str]
-    query_result: Optional[Any]
-    final_answer: Optional[str]
-    messages: List[Dict[str, str]]
+    intent: str
+    metric_name: str
+    time_range: str
+    dimensions: list[str]
+    filters: dict
+    generated_sql: str
+    query_result: Any
+    final_answer: str
+    messages: list[dict[str, str]]
+    error: str
+    trace_id: str
